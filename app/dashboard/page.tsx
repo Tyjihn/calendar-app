@@ -7,7 +7,7 @@ export default function DashboardPage() {
     <>
       <Topbar title="Dashboard" />
       <div className="h-18 flex items-center px-8 pt-2">
-        <h1 className="font-bold text-lg text-gray-600">
+        <h1 className="font-bold text-xl text-gray-600">
           Today's Date
         </h1>
       </div>
