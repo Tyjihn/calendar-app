@@ -9,6 +9,7 @@ export default function Sidebar() {
     const pathname = usePathname();
     const sidebar = useSidebar();
     const isCollapsed = sidebar?.isCollapsed ?? false;
+    const iconSize = 22;
 
     return (
         <div className={`${isCollapsed ? 'w-18' : 'w-72'} bg-white border-r p-4 flex flex-col transition-all duration-300`}>
@@ -17,20 +18,20 @@ export default function Sidebar() {
             </h1>
             
             <nav className="space-y-2 text-gray-900">
-                <Link href="/dashboard" className={`flex items-center gap-2 px-2 py-2 rounded-lg h-10 ${
-                    pathname === '/dashboard' ? 'bg-blue-100 text-black font-semibold' : 'hover:bg-gray-100'
+                <Link href="/dashboard" className={`flex items-center gap-2 px-3 rounded-lg h-10 ${
+                    pathname === '/dashboard' ? 'bg-indigo-100 text-black font-semibold' : 'hover:bg-gray-100'
                 } ${isCollapsed ? 'justify-center' : ''}`}>
-                    <LayoutDashboard size={22} />{!isCollapsed && "Dashboard"}
+                    <LayoutDashboard size={iconSize} className="shrink-0" />{!isCollapsed && "Dashboard"}
                 </Link>
-                <Link href="/planner" className={`flex items-center gap-2 px-2 py-2 rounded-lg h-10 ${
-                    pathname === '/planner' ? 'bg-blue-100 text-black font-semibold' : 'hover:bg-gray-100'
+                <Link href="/planner" className={`flex items-center gap-2 px-3 rounded-lg h-10 ${
+                    pathname === '/planner' ? 'bg-indigo-100 text-black font-semibold' : 'hover:bg-gray-100'
                 } ${isCollapsed ? 'justify-center' : ''}`}>
-                    <Sparkles size={22} />{!isCollapsed && "AI Planner"}
+                    <Sparkles size={iconSize} className="shrink-0" />{!isCollapsed && "AI Planner"}
                 </Link>
-                <Link href="/performance" className={`flex items-center gap-2 px-2 py-2 rounded-lg h-10 ${
-                    pathname === '/performance' ? 'bg-blue-100 text-black font-semibold' : 'hover:bg-gray-100'
+                <Link href="/performance" className={`flex items-center gap-2 px-3 rounded-lg h-10 ${
+                    pathname === '/performance' ? 'bg-indigo-100 text-black font-semibold' : 'hover:bg-gray-100'
                 } ${isCollapsed ? 'justify-center' : ''}`}>
-                    <BarChart3 size={22} />{!isCollapsed && "Performance"}
+                    <BarChart3 size={iconSize} className="shrink-0" />{!isCollapsed && "Performance"}
                 </Link> 
             </nav>
 

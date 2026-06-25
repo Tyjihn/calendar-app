@@ -1,11 +1,11 @@
-import Topbar from "../components/Topbar";
+import AppHeader from "../components/AppHeader";
 import Card from "../components/Card";
 import { CalendarClock, ClipboardList, NotebookPen, CircleCheckBig } from "lucide-react";
 
 export default function DashboardPage() {
   return (
     <>
-      <Topbar title="Dashboard" />
+      <AppHeader title="Dashboard" />
       <div className="h-18 flex items-center px-8 pt-2">
         <h1 className="font-bold text-xl text-gray-600">
           Today's Date
