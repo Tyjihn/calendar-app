@@ -8,7 +8,7 @@ MVP Phase 1: UI foundation (dashboard + task layout)
 ## Tech Stack
 - Next.js
 - React
-- (Tailwind if you're using it)
+- Tailwind
 
 ## Features (in progress)
 - Dashboard layout
