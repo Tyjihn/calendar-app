@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ClipboardList, ChevronDown, Trash2, Plus } from "lucide-react";
-import TaskModal from "../TaskModal";
+import TaskModal from "./TaskModal";
 import { Task } from "../types";
 
 export default function TaskListView() {

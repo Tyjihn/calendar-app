@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { X, Minus, Plus, Lightbulb } from "lucide-react";
-import { Task, TaskType, Difficulty } from "./types";
+import { Task, TaskType, Difficulty } from "../types";
 import OptionGroup from "./OptionGroup";
 
 type TaskModalProps = {
