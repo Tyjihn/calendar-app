@@ -1,5 +1,5 @@
 import AppHeader from "../components/AppHeader";
-import Card from "../components/Card";
+import Card from "./_components/Card";
 import { CalendarClock, ClipboardList, NotebookPen, CircleCheckBig } from "lucide-react";
 
 export default function DashboardPage() {

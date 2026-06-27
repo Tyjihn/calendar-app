@@ -1,7 +1,7 @@
 import AppHeader from "../components/AppHeader"
-import Calendar from "../components/Calendar"
-import TaskPanel from "../components/TaskPanel";
-import ResizableSplit from "../components/ResizableSplit";
+import Calendar from "./_components/Calendar"
+import TaskPanel from "./_components/TaskPanel";
+import ResizableSplit from "./_components/ResizableSplit";
 
 export default function PlannerPage() {
     return (
