@@ -13,7 +13,7 @@ export default function Sidebar() {
 
     return (
         <div className={`${isExpanded ? 'w-72' : 'w-18'} bg-white border-r p-4 flex flex-col transition-all duration-300`}>
-            <h1 className={`text-2xl font-bold text-black mb-10 flex items-center gap-3 mt-1 ml-1 ${isExpanded ? 'justify-center' : ''}`}>
+            <h1 className={`text-2xl font-bold text-black mb-10 flex items-center gap-3 mt-1 ml-1 ${isExpanded ? '' : 'justify-center'}`}>
                 <GraduationCap size={32}/>{isExpanded && "CalendAIr"}
             </h1>
             

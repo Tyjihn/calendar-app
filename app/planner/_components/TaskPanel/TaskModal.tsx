@@ -125,7 +125,7 @@ export default function TaskModal({isOpen, onClose, onSubmit}: TaskModalProps) {
                         {   errorField === "dueDate" && <p className="text-red-600 text-sm mt-1 ml-1">Please select a the due date!</p>}
                         </label>
                         {/* Next Button */}
-                        <button type="button" className="w-15 h-9 rounded-lg border border-gray-300 bg-white font-semibold
+                        <button type="button" className="w-15 h-9 rounded-lg border border-gray-300 hover:bg-gray-200 font-semibold
                             flex items-center justify-center self-end cursor-pointer mt-1" onClick={() => goNext()}>
                             Next
                         </button>
@@ -162,11 +162,11 @@ export default function TaskModal({isOpen, onClose, onSubmit}: TaskModalProps) {
                         </label>
                         
                         <div className="flex flex-row self-end gap-3">
-                            <button type="button" className="w-22 h-9 rounded-lg border border-gray-300 font-semibold
+                            <button type="button" className="w-22 h-9 rounded-lg border border-gray-300 hover:bg-gray-200 font-semibold
                                 flex items-center justify-center self-end cursor-pointer mt-1" onClick={() => setStep(1)}>
                                 Previous
                             </button>
-                            <button type="submit" className="w-23 h-9 rounded-lg border border-gray-300 bg-indigo-900
+                            <button type="submit" className="w-23 h-9 rounded-lg border border-gray-300 bg-indigo-900 hover:bg-indigo-700
                                 font-semibold text-white flex items-center justify-center self-end cursor-pointer mt-1">
                                 Generate
                             </button>

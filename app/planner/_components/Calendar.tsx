@@ -8,7 +8,7 @@ export default function Calendar() {
     
     return (
         <div className="flex flex-col h-full">
-            <div className={`${cols} pr-[13px]`}>
+            <div className={`${cols} pr-3.5`}>
                 <div className="h-20 border-b border-gray-300" />
                 {days.map((d) => (
                     <div key={d} className="relative border-b border-gray-300 p-2 text-gray-600 text-center text-sm font-semibold">

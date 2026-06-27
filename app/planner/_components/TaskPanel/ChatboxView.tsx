@@ -14,15 +14,15 @@ export default function ChatboxView(){
         <div className="h-full flex flex-col">
             {/* Header */}
             <div className="flex items-center justify-center gap-3">
-                <Sparkles size={22}/><h1 className="font-semibold text-xl gap-2 py-3">CalendAIr</h1>
+                <Sparkles size={22}/><h1 className="font-semibold text-xl gap-2 py-2">CalendAIr</h1>
             </div>
-            <div className="flex flex-col h-full min-h-0 p-2">
+            <div className="flex flex-col h-full min-h-0 p-2 mt-2">
                 {/* Conversation History */}
                 <div className="flex-1 min-h-0 overflow-y-auto simple-scroll flex flex-col gap-2 p-1">
                     {messages.map((m) => (
                         <div key={m.id}
-                        className={`max-w-[80%] rounded-2xl px-3 py-2 text-sm ${
-                            m.role === 'user' ? 'self-end bg-indigo-800 text-white' : 'self-start bg-gray-100 text-black'}`}>
+                        className={`max-w-[80%] rounded-2xl px-3 py-2 text-[15px] ${
+                            m.role === 'user' ? 'self-end bg-indigo-800 text-white' : 'self-start bg-gray-300/50 text-black'}`}>
                             {m.text}
                         </div>
                     ))}

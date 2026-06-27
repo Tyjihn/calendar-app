@@ -21,7 +21,7 @@ export default function TaskListView() {
                 </div>
                 {/* "Add" Task Modal */}
                 <button type="button" onClick={() => setModalOpen(!isModalOpen)} 
-                    className="shrink-0 w-28 h-9 px-2 rounded-lg flex items-center justify-center self-end cursor-pointer bg-indigo-900 text-white gap-2">
+                    className="shrink-0 w-28 h-9 px-2 rounded-lg flex items-center justify-center self-end cursor-pointer bg-indigo-900 hover:bg-indigo-700 text-white gap-2">
                     <Plus size={16} />Add Task
                 </button>
                 <TaskModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} onSubmit={(task) => addTask(task)} />
