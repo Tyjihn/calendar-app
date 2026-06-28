@@ -7,6 +7,6 @@ export type Task = {
     type: TaskType;
     dueDate: string;
     difficulty: Difficulty;
-    subtasks: number;
+    subtasks: string[];
     description?: string;
 };

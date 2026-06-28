@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ClipboardList, ChevronDown, Trash2, Plus } from "lucide-react";
 import TaskModal from "./TaskModal";
+import TaskCard from "./TaskCard";
 import { Task } from "../types";
 
 export default function TaskListView() {
@@ -25,47 +26,10 @@ export default function TaskListView() {
                     <Plus size={16} />Add Task
                 </button>
                 <TaskModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} onSubmit={(task) => addTask(task)} />
-                {/* Task Card */}
-                <div className="rounded-lg border border-gray-300 py-2">
-                    <div className="flex items-center gap-5 p-1 px-4 cursor-pointer select-none" onClick={() => setExpanded(!isExpanded)}>
-                        {isTask && (
-                            <button type="button" aria-label="Done"
-                                className="w-6 h-6 rounded-full border-2 border-gray-300 shrink-0 cursor-pointer hover:border-gray-500" />
-                        )}
-                        <div className="flex-1 min-w-0">
-                            <p className="truncate">Math HW</p>
-                            <p className="text-xs text-gray-500">assignment * Due Jun 26</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <button type="button" aria-label="Expand" className="shrink-0 text-gray-600 cursor-pointer
-                                w-7 h-7 rounded-full bg-white hover:bg-gray-200 flex items-center justify-center">
-                                <ChevronDown size={16} className={`transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
-                            </button>
-                            <button type="button" onClick={() => {}} 
-                                aria-label="Delete" className="shrink-0 text-red-700 cursor-pointer
-                                    w-7 h-7 rounded-full bg-white hover:bg-gray-200 flex items-center justify-center">
-                                <Trash2 size={16}/>
-                            </button>
-                        </div>
-                    </div>
-                    {/* Expanded Card Section */}
-                    {isExpanded && (
-                        <div className="p-2 pl-15 flex flex-col gap-3 text-sm text-gray-600">
-                            <div className="flex items-center gap-3">
-                                <button type="button" aria-label="Done"
-                                    className="w-5 h-5 rounded-full border-2 border-gray-300 
-                                        shrink-0 cursor-pointer hover:border-gray-500" onClick={() => {}}/>
-                                        Read Chapter 4
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <button type="button" aria-label="Done"
-                                    className="w-5 h-5 rounded-full border-2 border-gray-300 
-                                        shrink-0 cursor-pointer hover:border-gray-500" onClick={() => {}}/>
-                                        Finish Reading Response
-                            </div>
-                        </div>
-                    )}
-                </div>
+                {/* Task Cards */}
+                {tasks.map((task) => (
+                    <TaskCard key={task.id} task={task} />
+                ))}
             </div>
         </div>
     );

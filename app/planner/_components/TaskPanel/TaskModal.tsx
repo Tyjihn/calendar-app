@@ -18,7 +18,7 @@ export default function TaskModal({isOpen, onClose, onSubmit}: TaskModalProps) {
     const [type, setType] = useState<TaskType>("assignment");
     const [dueDate, setDueDate] = useState("");
     const [difficulty, setDifficulty] = useState<Difficulty>("medium");
-    const [subtasks, setSubtasks] = useState(4);
+    const [subtaskCount, setSubtaskCount] = useState(4);
     const [description, setDescription] = useState("");
     const typeOptions: { value: TaskType; label: string }[] = [
         { value: "assignment", label: "Assignment" },
@@ -40,7 +40,7 @@ export default function TaskModal({isOpen, onClose, onSubmit}: TaskModalProps) {
         setType("assignment");
         setDueDate("");
         setDifficulty("medium");
-        setSubtasks(4);
+        setSubtaskCount(4);
         setDescription("");
         setStep(1);
     }
@@ -53,7 +53,7 @@ export default function TaskModal({isOpen, onClose, onSubmit}: TaskModalProps) {
             type,
             dueDate,
             difficulty,
-            subtasks,
+            subtasks: Array.from({ length: subtaskCount }, (_, i) => `Subtask ${i + 1}`),
             description: description.trim() || undefined,
         })
         reset();
@@ -66,7 +66,7 @@ export default function TaskModal({isOpen, onClose, onSubmit}: TaskModalProps) {
     }
 
     function updateSubtasks(delta: number) {
-        setSubtasks((n) =>Math.max(2, Math.min(10, n + delta)))
+        setSubtaskCount((n) =>Math.max(2, Math.min(10, n + delta)))
     }
 
     function goNext() {
@@ -135,13 +135,13 @@ export default function TaskModal({isOpen, onClose, onSubmit}: TaskModalProps) {
                         <>
                         {/* Select difficulty */}
                         <OptionGroup legend="Difficulty" options={difficultyOptions} value={difficulty} onChange={setDifficulty}/>
-                        {/* Select number of subtasks */}
+                        {/* Select number of subtaskCount */}
                         <div className="flex flex-col">
                             <p className="font-semibold pb-2">Subtasks</p>
                             <div className="flex flex-row items-center gap-3">
                                 <button type="button" className="w-8 h-8 rounded-lg border border-gray-300 bg-white hover:bg-gray-200
                                     flex items-center justify-center cursor-pointer" onClick={() => updateSubtasks(-1)}><Minus size={18}/></button>
-                                <span className="w-8 text-center">{subtasks}</span>
+                                <span className="w-8 text-center">{subtaskCount}</span>
                                 <button type="button" className="w-8 h-8 rounded-lg border border-gray-300 bg-white hover:bg-gray-200
                                     flex items-center justify-center cursor-pointer" onClick={() => updateSubtasks(1)}><Plus size={18}/></button>
                             </div>
