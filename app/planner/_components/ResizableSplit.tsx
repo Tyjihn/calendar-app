@@ -6,7 +6,7 @@ import { GripVertical } from "lucide-react";
 export default function ResizableSplit({left, right} : {left: React.ReactNode, right: React.ReactNode}) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [leftPct, setLeftPct] = useState(66);
-    const min = 55, max = 78;
+    const min = 65, max = 75;
 
     function onMouseDown() {
         document.body.style.userSelect = "none";
