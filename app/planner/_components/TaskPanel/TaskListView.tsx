@@ -1,15 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ClipboardList, ChevronDown, Trash2, Plus } from "lucide-react";
+import { ClipboardList, Plus } from "lucide-react";
 import TaskModal from "./TaskModal";
 import TaskCard from "./TaskCard";
-import { Task } from "../types";
+import { useTasks } from "../TasksContext";
 
 export default function TaskListView() {
     const [isModalOpen, setModalOpen] = useState(false);
-    const [tasks, setTasks] = useState<Task[]>([]);
-    function addTask(task: Task) { setTasks((prev) => [...prev, task]); }
+    const { tasks, addTask } = useTasks();
 
     return (
         <div className="flex flex-col h-full min-h-0">

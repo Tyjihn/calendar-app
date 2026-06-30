@@ -7,6 +7,14 @@ export type Task = {
     type: TaskType;
     dueDate: string;
     difficulty: Difficulty;
-    subtasks: string[];
+    subtasks: Subtask[];
     description?: string;
+};
+
+export type Subtask = {
+    id: string;
+    title: string;
+    date: string;       // YYYY-MM-DD
+    startTime: string;  // HH:MM
+    duration: number;   // minutes
 };

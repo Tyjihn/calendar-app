@@ -39,12 +39,12 @@ export default function TaskCard({ task }: TaskCardProps) {
             {/* Expanded Card Section */}
             {isExpanded && (
                 <div className="p-2 pl-15 flex flex-col gap-4 mt-2 text-xs text-gray-600">
-                    { task.subtasks.map((subtask, index) => (
-                        <div key={index} className="flex items-center gap-3">
+                    { task.subtasks.map((subtask) => (
+                        <div key={subtask.id} className="flex items-center gap-3">
                             <button type="button" aria-label="Done"
                                 className="w-4 h-4 rounded-full border-2 border-gray-300 
                                 shrink-0 cursor-pointer hover:border-gray-500" onClick={() => {}}/>
-                            { subtask }
+                            { subtask.title }
                         </div>
                     ))}
                 </div>

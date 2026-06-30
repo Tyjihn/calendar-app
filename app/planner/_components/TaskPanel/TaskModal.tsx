@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { X, Minus, Plus, Lightbulb } from "lucide-react";
-import { Task, TaskType, Difficulty } from "../types";
+import { Task, Subtask, TaskType, Difficulty } from "../types";
 import OptionGroup from "./OptionGroup";
 
 type TaskModalProps = {
@@ -10,6 +10,20 @@ type TaskModalProps = {
     onClose: () => void;
     onSubmit: (task: Task) => void;
 };
+
+function scheduleSubtasks(dueDate: string, count: number): Subtask[] {
+    return Array.from({ length: count }, (_, i) => {
+        const d = new Date(dueDate + "T00:00:00");
+        d.setDate(d.getDate() - i);
+        return {
+            id: crypto.randomUUID(),
+            title: `Subtask ${i + 1}`,
+            date: d.toLocaleDateString("en-CA"),
+            startTime: `${String(9 + i).padStart(2, "0")}:00`,
+            duration: 60,
+        };
+    });
+}
 
 export default function TaskModal({isOpen, onClose, onSubmit}: TaskModalProps) {
     const today = new Date().toLocaleDateString("en-CA");
@@ -53,7 +67,7 @@ export default function TaskModal({isOpen, onClose, onSubmit}: TaskModalProps) {
             type,
             dueDate,
             difficulty,
-            subtasks: Array.from({ length: subtaskCount }, (_, i) => `Subtask ${i + 1}`),
+            subtasks: scheduleSubtasks(dueDate, subtaskCount),
             description: description.trim() || undefined,
         })
         reset();
