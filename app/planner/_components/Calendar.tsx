@@ -1,7 +1,8 @@
 "use client";
 
-import { Fragment, startTransition } from "react";
+import { Fragment } from "react";
 import { useTasks } from "./TasksContext";
+import CalendarBlock from "./CalendarBlock";
 
 export default function Calendar() {
     const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -10,8 +11,7 @@ export default function Calendar() {
     const cols = "grid grid-cols-[60px_repeat(7,minmax(80px,1fr))]";
     const { tasks } = useTasks();
     const allSubtasks = tasks.flatMap((t) => t.subtasks);
-    
-    const HOURS_PX = 56;
+
     const today = new Date();
     const offsetToMonday = (today.getDay() + 6) % 7;
     const monday = new Date(today);
@@ -59,23 +59,13 @@ export default function Calendar() {
                         ))}
                     </div>
                     {/* display all assigned tasks in blocks */}
-                    <div className={`${cols} absolute inset-0 pointer-events-none`}>
+                    <div className={`${cols} absolute inset-0 pointer-events-auto`}>
                         <div/> {/* skip first column */}
                         {weekDates.map((date, colIndex) => (
                             <div key={colIndex} className="relative">
                                 {allSubtasks
                                     .filter((subtask) => subtask.date === date.toLocaleDateString("en-CA"))
-                                    .map((subtask) => {
-                                        const hourMinutes = subtask.startTime.split(":").map(Number);
-                                        const top = (hourMinutes[0] * 60 + hourMinutes[1]) / 60 * HOURS_PX;
-                                        const height = subtask.duration / 60 * HOURS_PX;
-                                        return (
-                                            <div key={subtask.id} style={{ top, height }} className="absolute rounded-lg bg-indigo-500 
-                                                flex justify-center left-1 right-1 p-2 font-semibold text-xs text-white">
-                                                {subtask.title}
-                                            </div>
-                                        );
-                                    })
+                                    .map((subtask) => <CalendarBlock key={subtask.id} subtask={subtask}/>)
                                 }
                             </div>
                         ))}
